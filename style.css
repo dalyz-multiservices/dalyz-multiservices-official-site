@@ -1,0 +1,755 @@
+/* ///////////////////// Color Palette and Fonts /////////////////// */
+/* 
+    Navy Blue - #152C6F
+    Gold/Brown - #C9A062
+    Light Green - #4B902A
+    White - #FFFFFF
+*/
+/*
+    font-family: 'Exo 2', sans-serif; - Titles
+    font-family: 'Bebas Neue', cursive; - Headers, and Buttons
+    font-family: 'Open Sans', sans-serif; - Paragraphs, Links, and other subtext
+*/
+
+/* ///////////////////// General Content /////////////////////// */
+
+html{
+    font-size:20px; /* Root Font Size, scaled with rem */
+    width: 100%;
+}
+
+body{
+    padding: 0;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+
+/* default value of a background image is empty ==> later modified in each individual class selector */
+:root{
+    --background-image : url("");
+    --background-gradient: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0)); /* transparent */
+    /* default value for gradient is empty unless a change is needed ==> modified in that specific class selector*/
+}
+
+p, li, a {
+    font-family: 'Arimo', sans-serif;
+    font-size: 1rem;
+}
+
+h1{
+    font-family: 'Arimo', sans-serif;
+    font-size: 2.25rem;
+    padding:25px 0px;
+    font-weight:bold;
+}
+h2 {
+    font-family: 'Arimo', sans-serif;
+    font-size: 1.85rem;
+    padding: 25px 0px 15px 0px;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.75rem;
+    padding: 20px 0px;
+}
+
+img{
+    border-radius: 5px;
+}
+
+
+/* All content, not including headers and footers */
+main{
+    padding: 0;
+}
+main a { 
+    color: #152C6F;
+    cursor: pointer;
+}
+main a:hover{
+    color: #C9A062;
+ }
+
+/* Overrides focus/hover features from Bootstrap for buttons */
+ .btn, .btn:hover, .btn:active:hover{
+    background-color: #4B902A;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px 25px 5px 25px;
+    font-family: 'Bebas Neue', cursive;
+    border:none;
+    cursor:pointer;
+    font-size:1.5rem;
+}
+
+.section{
+    padding: 125px 10px; /* .container-fluid from bootstrap provides automatic padding */
+}
+
+.bullet{
+    color:#C9A062;
+    margin: 0px 10px;
+}
+
+/* ---------- Navigation Bar ---------- */
+
+/* Invisible space accounts for Fixed Nav Bar */
+.fixed-space{
+   min-height: 100px;
+}
+.navbar{
+    min-height: 100px;
+}
+
+/* Top/Fixed Navigation Bar and Side Navigation Menu */
+.navbar, .navbar-side{
+    background-color: #152C6F;
+    /* variable had to be changed to remove outline */
+    --bs-navbar-toggler-focus-width: 0rem;
+    padding:0;
+}
+.navbar .container-fluid{
+    --bs-gutter-x: 0rem;
+    --bs-gutter-y: 0rem;
+    flex-wrap: nowrap;
+    padding: 10px 15px;
+}
+.navbar-side{
+    padding: 25px 0px;
+}
+.logo{
+    width:300px;
+}
+
+/* Side Menu for Responsiveness */
+.offcanvas-title{
+    padding: 15px;
+}
+.offcanvas-title .navbar-toggler{
+    float:right;
+}
+
+.nav-item{
+    margin:10px 0px;
+    width: max-content;
+}
+.nav-link, .nav-link:focus{
+    color: #FFFFFF;
+    font-family: 'Bebas Neue', cursive;
+    font-size:1.5rem; 
+}
+.navbar-toggler {
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    border-color: transparent;
+    background: transparent;
+}
+.btn-lang{
+    margin: 0px 10px;
+}
+
+/* Hover Feature for all Navigation Links except current page */
+.nav-link:not(.current-page):hover, .navbar-toggler:hover{
+    color:#C9A062;
+}
+/* Current Page Style */
+.current-page{
+    text-decoration:underline;
+}
+.current-page:hover{
+    color:#FFFFFF;
+}
+
+
+
+
+/* ---------- Footer ---------- */
+footer{
+    background-color: #152C6F;
+    text-align: center;
+    padding: 15px;
+    color: #FFFFFF;
+}
+
+footer p{
+    display:inline;
+    vertical-align: middle;
+}
+
+
+
+/* For containers inside sections, a percentage width is added, but a maximum width limit is set in pixels for larger screens. */
+/* Page-break sections: 1075 - 1250 pixels max width depending on content */
+/* General Content (within .section class): 1250-1450 pixels max width dending on content */
+/* Headers: 750 pixels max width */
+
+/* ------------ General Header Designs - heights and background images differ ---------- */
+header{
+    background: var(--background-image) center center; /* eacher header element has a unique variable value */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
+    background-attachment: fixed; */
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    text-align:center; 
+    color:#FFFFFF;        
+    padding: 45px 25px; /* automatically formats height around child elements */
+    
+}
+.header-overlay{
+    /* Overlay positioning overrides flexbox of header elements */
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    background-color: #152C6F; /* all background overlays are  */
+    opacity:0.75;
+
+}
+
+.header-inner-cont{
+    z-index:5;
+    width:90%;
+    max-width: 750px;
+}
+
+header p{
+    font-weight: bold;
+    padding:10px;
+}
+
+header span{
+    color: #C9A062;
+    font-style: italic;
+}
+
+
+/* ----------- General Page Break Designs - heights, background images, and gradients differ -----------*/
+.page-break-content{
+    background: var(--background-gradient), var(--background-image); /* Gradient background overlapping image background*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    align-items:center; /* vertically align */
+    padding: 45px 25px; /* horizontal padding matches sections, changes height freely when Vertical Viewport decreases */
+}
+
+
+
+
+/* /////////////////////// Home Page Design /////////////////////// */
+
+
+/* ---------- Home Page - Header ----------*/
+.home-header{
+    --background-image : url("assets/accounting.jpg");
+    min-height:80vh; /* Minimum height on full vertical viewport ==> On smaller screens (both vertically and horizontally), padding from .header class will accomodate child elements and the header will be a proper height*/
+    color:#FFFFFF;
+}
+
+
+/* ---------- Home Page Page Break Section - Business Statement ----------- */
+
+.statement{
+    --background-image : url("assets/los-angeles-skyline.jpg"); /* links image to the page-break-content class that seeks a background image*/
+    --background-gradient: linear-gradient(90deg, rgba(250,250,250,0.95), rgba(250,250,250, 0.80), rgba(250,250,250,0.3));
+    background-position: center center;
+    min-height: 60vh; /* Minimum height on full screen, padding overrides default height when Vertical Viewport shrinks to prevent overlapping */
+
+}
+.statement-cont{
+    width: 65%;
+    max-width:1075px; /* MAX WIDTH */
+    color:#152C6F;
+    padding: 0px 25px; /* Slight padding, later removed */
+}
+.statement-cont h2{
+    text-align:left;
+}
+.statement-cont p{
+    text-align:justify;
+}
+
+.statement-cont span{
+    color:#C9A062;
+}
+
+
+/* ---------- Home Page Section - Services ---------- */
+.services{
+    text-align:center;
+}
+.services h2{
+    color: #152C6F;
+    margin: 15px 0px;
+}
+/* Grid Container holding cards */
+.services-cont{
+    margin: 0 auto;
+    padding: 30px 0px;
+    max-width: 1450px; /* MAX WIDTH */
+    display:flex; 
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+}
+
+/* Services Card Style */
+.service-card-home{
+    background-color: #FFFFFF;
+    position:relative;
+    padding: 10px;
+    text-align:center;
+    margin: 20px 10px;
+    width:375px; 
+    max-width: 90%; /* cards and container both have width limits */
+}
+.service-card-home::after{ /* using psuedo elements */
+    background-color: #152C6F;
+    width: 100%;
+    height:87%;
+    position:absolute;
+    display:block;
+    bottom:0;
+    left:0;
+    content:"\A";
+    z-index:1;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+}
+.service-card-body{
+    z-index:5;
+    position:relative;
+    color: #FFFFFF;
+}
+.service-card-body hr{
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    height: 5px;
+    opacity: 1.0;
+    border-radius: 50px; 
+    width:75px;
+}
+.service-card-body p{
+    padding: 20px 15px; /* additional padding for paragraph element */
+}
+
+.service-icon-home{ /* Inline element, centered with text-align or flexbox!*/
+    width: 125px;
+    height: 125px;
+}
+
+.btn-services{
+    margin: 20px 0px;
+}
+
+/* ---------- Home Page Page-Break Section - Sub Statement ----------*/
+.sub-statement{
+    --background-image: url("assets/tax-forms.jpg");
+    --background-gradient: linear-gradient(90deg, rgba(250,250,250,0.95), rgba(250,250,250,0.80), rgba(250,250,250,0.3));
+    background-position: center center;
+    min-height: 40vh;
+}
+/* Inner container uses .statement-cont class */
+
+
+
+
+/* ---------- Home Page - Contact Info ---------- */
+.contacts-cont{
+    width:90%;
+    max-width: 1450px; /* MAX WIDTH FOR MOST CONTAINERS */
+    margin: 0 auto;
+}
+.contacts-cont h2{
+    color: #152C6F;
+    text-align:left;
+    padding: 0; /* adjusting padding slightly */
+}
+.contacts-cont{
+    text-align: justify;
+}
+
+.contacts-cont img{
+    display: block;
+    margin: 0 auto;
+    width:100%;
+    min-height: 375px;
+    /* Object crops horizontally as viewport shrinks */
+    object-fit: cover;
+}
+
+.contact-list-home{
+    list-style-type:none;
+    text-align:left;
+    padding:0;
+}
+.contact-list-home li{
+    margin-top: 10px;
+    font-size: 1.10rem; /* override default font size */
+    font-weight:bold;
+}
+.contact-list-home span{
+    color: #C9A062;
+    margin-right: 20px;
+}
+
+
+/* Home Page - Testimonials */
+.testimonials{
+    --background-image : url("assets/cash.jpg");
+    --background-gradient: linear-gradient(90deg, rgba(21, 44, 111, 0.65), rgba(21, 44, 111, 0.65));
+    padding:40px;
+    display:block; /* overriding default flexbox */
+    text-align:center;
+    color: #FFFFFF;
+    min-height: 75vh; /* Minimum height on full screen, padding overrides default height when Vertical Viewport shrinks to prevent overlapping */
+}
+.testimonials-cont{
+    max-width: 1450px; /* MAX WIDTH FOR MOST CONTAINERS */
+    margin: 0 auto;
+}
+.testimonials .sk-ww-google-reviews {
+    margin: 20px 0px;
+}
+
+
+
+
+
+/* ////////////////////// Services - Main Page /////////////////////////*/
+
+/* Services - Header*/
+.services-header{
+    min-height: 60vh; /* Accounts for shrinking Vertical Viewport */
+    --background-image : url("assets/client-meeting.jpg");
+    background-position: center center;
+     /* background-repeat: no-repeat;
+    background-attachment: fixed; */
+    color:#FFFFFF;
+}
+
+.service-row{
+    padding: 35px 0px;
+    max-width: 1250px; /* MAX WIDTH */
+    margin:0 auto;
+}
+.service-row span:not(.bullet){
+    font-weight:bold;
+    color:#152C6F;
+}
+
+.service-desc{
+    padding: 15px;
+}
+.service-desc p{
+    text-align:justify;
+}
+
+/* Fixing the Title Section of each service */
+.service-title {
+    display:flex;
+    align-items: flex-start; /* allows different heights for each element, aligns them vertically to the top*/
+    color:#152C6F;
+    margin-bottom:15px;
+}
+.service-title-text{
+    line-height:65px; /* width/height of icon ==> lines of inner text will match height and center text automatically*/
+   
+}
+.service-title-text h3{
+    padding: 5px; /* decreasing padding slightly*/
+    line-height: 1.0; /* overriding with default line height for the actual text */
+    display: inline-block; /* joining the shortened lines together and aligning in middle*/
+    vertical-align: middle;
+}
+
+.service-img{
+    display: block;
+    margin: 0 auto;
+    width:100%;
+    min-height: 325px; /* Aspect ratio maintained, picture crops horizontally */
+    object-fit: cover;
+}
+.service-icon{
+    width: 65px;
+    height:65px;
+    margin-right:15px;
+}
+
+
+.service-list{
+    list-style-type:none;
+    text-align:left;
+    padding:0;
+}
+
+.service-message{
+    text-align:center;
+    margin: 0 auto;
+    width:90%;
+    max-width: 750px; /* MAX WIDTH - Statemetn */
+    font-weight:bold;
+    padding: 50px 0px;
+}
+.btn-service-message{
+    margin:20px 0px;
+}
+
+
+/* ////////////////////// Contacts - Main Page ///////////////////// */
+
+
+.contact-header{
+    min-height: 60vh; /* Accounts for shrinking Vertical Viewport */
+    --background-image : url("assets/phone-contact.jpg");
+    color:#FFFFFF;
+}
+.contact-info-main{
+    max-width: 1450px; /* MAX WIDTH */
+    margin: 0 auto;
+    text-align:center;
+}
+.contact-info-main iframe{
+    width:100%;
+    height:100%;
+}
+.info{
+    margin-bottom: 45px; 
+    padding:0;
+}
+.info i{
+    color:#C9A062;
+    font-size: 30px;
+}
+.info h3{
+    color:#152C6F;
+}
+.info p{
+    max-width: 275px;
+    margin: 0 auto;
+}
+.info span{
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* ////////////////////// Resources - Main Page //////////////////// */
+
+.resources-header{
+    min-height: 60vh; /* Accounts for shrinking Vertical Viewport */
+    background-position: center center;
+    --background-image: url("assets/downtown-los-angeles.jpg");
+    color: #FFFFFF;
+}
+
+.resources{
+    width:90%;
+    max-width:1250px;
+    margin: 0 auto;
+}
+.resources h2{
+    color: #C9A062;
+}
+.resource-img-cont{
+    display:flex; 
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+.resource-img-cont img{
+    margin: 25px 10px;
+}
+.resource-list{
+    list-style-type:none;
+    text-align:left;
+    padding:0;
+}
+
+.resource-list li a{
+    margin-top: 10px;
+    font-size: 1.10rem; /* override default font size */
+    font-weight:bold;
+}
+
+
+
+/* //////////////////// Media Queries - for responsiveness ////////////////////*/
+
+
+/* Media Queries based on the width of Bootstrap grid breakpoints*/
+
+@media screen and (max-width: 768px){ /* all screens on viewport width < 768px (md class)*/
+
+    /* ------------- Remove padding and extend width of Statement containers on Home Page as Viewport Shrinks ----------- */
+    .statement-cont{
+        width: 90%; 
+        padding:0; 
+    }
+
+
+    /*---------- Adjusting wrapping and width of service containers on Service Main Page -----------*/
+    .even-row{
+        flex-wrap: wrap-reverse;
+    }
+    .service-row{
+        max-width: 650px;
+    }
+    .service-title{
+        margin: 15px 0px;
+    }
+    .service-img{
+        min-height:350px;
+    }
+}
+
+@media screen and (max-width: 992px){ /* all screens on viewport width < 992px (lg class) */
+
+    /*----------- Adjusting wrapping on Contacts Section on Home Page -----------*/
+    .contacts-cont h2{
+        margin-top: 45px;
+    }
+    .contacts-cont img{
+        min-height: 300px; 
+    }
+
+    /* --------- Adjusting height of Google Maps embed on Contacts Main Page ----------*/
+    .contact-info-main iframe{
+        min-height: 400px;
+    }
+}
+
+
+@media screen and (min-width: 992px){
+    /* ---------- Makes Responsive Side Menu and backdrop disappear and Main Navigation Bar reappears ----------- */
+    .offcanvas{
+        display:none;
+    }
+    .offcanvas-backdrop{
+        display:none; /* .show class is still active on this element, so when screen is < 992px, the side menu reappears */
+    }
+}
+
+
+/* ---------- Extra small phone screens ----------*/
+
+@media screen and (max-width: 450px){
+    header{
+        padding: 25px 10px; /* Decrease padding for header elements */
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+
+    h2 {
+        /*with the font belonging to h2 and h3 elements, the font size shouldn't decrease 
+        by much since it tends to size smaller than the main font*/
+        font-size: 1.60em;
+    }
+    
+    h3 {
+        font-size: 1.35em;
+    }
+
+    p, li, a{
+        font-size: 0.85rem;
+    }
+    .btn{
+        /*changing button font size for responsiveness*/
+        font-size: 1.25rem;
+    } 
+    
+    .logo{
+        width: 200px;
+    }
+
+    .navbar-brand{
+        margin:none;
+    }
+    .navbar-toggler{
+        font-size: 1.15rem;
+    }
+
+    /* Adjusting title on Service sections on Main Page */
+    .service-title{
+        flex-wrap: wrap;
+    }
+    .service-icon{
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+    }
+
+    .service-icon-home{
+        width:115px;
+        height:115px;
+    }
+    .service-card-home{
+        padding:0px;
+    }
+    .service-card-body p{
+        padding: 15px 10px;
+    }
+    .service-card-home::after{
+        height:89%;
+    }
+
+    .contact-list-home li, .resource-list li a{
+        font-size: 0.85rem; /* remove override */
+    }
+
+    .contacts-cont img, .service-img{
+        min-height: 185px; 
+    }
+
+    .contact-info-main iframe{
+        min-height: 325px
+    }
+
+}
+
+@media screen and (max-width: 250px){
+    h1{
+        font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1.35em;
+    }
+
+    p, header p, li, a{
+        font-size: 0.75rem;
+    }
+    .contact-list-home li, .resource-list li a{
+        font-size: 0.75rem; /* remove override */
+    }
+    .btn{
+        font-size: 1rem;
+    } 
+
+    /* Removing logo from main navigation bar for small reasons */
+    .logo-main{
+        display: none;
+    }
+    .logo{
+        width: 150px;
+    }
+
+    .service-icon-home{
+        width:85px;
+        height:85px;
+    }
+    .service-card-home::after{
+        height:93%;
+    }
+}
+
+
