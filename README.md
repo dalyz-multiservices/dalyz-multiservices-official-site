@@ -1,5 +1,5 @@
 ## Welcome to Dalyz Multiservices!
-### Official business site, hosted on GitHub Pages.
+### Official business site, hosted on cPanel, Git Version control configured. 
 ### Domain: *Pending*
 
 ### About Us
