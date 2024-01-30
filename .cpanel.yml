@@ -1,0 +1,6 @@
+# This file directs content from cloned repo to public_html dir that is viewed on the web.
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mt5h7vtewta6/public_html/
+    - /bin/cp index.html $DEPLOYPATH
