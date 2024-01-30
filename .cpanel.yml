@@ -4,3 +4,11 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/mt5h7vtewta6/public_html/
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp services.html $DEPLOYPATH
+    - /bin/cp contacts.html $DEPLOYPATH
+    - /bin/cp resources.html $DEPLOYPATH
+    - /bin/cp -R es $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R scripts $DEPLOYPATH
+    - /bin/cp -R styles $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH    
